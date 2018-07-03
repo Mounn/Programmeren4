@@ -5,7 +5,7 @@
 
 // Set the logging level.
 const loglevel = process.env.LOGLEVEL || 'trace'
-const secretkey = process.env.SECRETKEY
+const secretkey = process.env.SECRETKEY || 'secret'
 
 module.exports = {
     secretkey: secretkey,

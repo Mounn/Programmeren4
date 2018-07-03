@@ -137,7 +137,7 @@ routes.delete('/studentenhuis/:huisId', StudentenhuisController.delete)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId bestaat niet)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-//routes.post('/studentenhuis/:huisId/maaltijd', UploadController.handleUploadForm, MaaltijdController.create)
+routes.post('/studentenhuis/:huisId/maaltijd', MaaltijdController.create)
 
 /**
  * Vervang de maaltijd met het gegeven maaltijdId door de nieuwe maaltijd in de request body.
