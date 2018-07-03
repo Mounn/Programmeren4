@@ -28,7 +28,7 @@ module.exports = {
             const huisId = req.params.huisId
             const maaltijdId = req.params.maaltijdId
             const userId = req.user.id
-            const query = 'INSERT INTO `deelnemers` (UserID, StudentenhuisID, MaaltijdID) VALUES (?, ?, ?)'
+            const query = 'INSERT INTO `delers` (UserID, categorieID, spullenID) VALUES (?, ?, ?)'
             const values = [userId, huisId, maaltijdId]
             pool.getConnection((err, connection) => {
                 if (err) {

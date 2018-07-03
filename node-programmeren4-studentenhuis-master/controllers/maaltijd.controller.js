@@ -14,7 +14,7 @@ module.exports = {
 
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
             // More validations here.
         } catch (ex) {
