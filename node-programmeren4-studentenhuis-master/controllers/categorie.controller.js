@@ -15,11 +15,9 @@ module.exports = {
         logger.debug('req.user = ', req.user)
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
-            assert(typeof (req.body.adres) === 'string', 'adres must be a string.')
-            assert(typeof (req.body.lat) === 'string', 'lat must be a string.')
-            assert(typeof (req.body.long) === 'string', 'long must be a string.')
+            assert(typeof (req.body.beschrijving) === 'string', 'beschrijving must be a string.')
         } catch (ex) {
             const error = new ApiError(ex.toString(), 500)
             next(error)
@@ -34,8 +32,8 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('INSERT INTO `studentenhuis` (`Naam`, `Adres`, `UserID`, `Lat`, `Long`) VALUES (?,?,?,?,?)', 
-                    [req.body.naam, req.body.adres, req.user.id, req.body.lat, req.body.long],
+                connection.query('INSERT INTO `categorie` (`Naam`, `Beschrijving`, `UserID`) VALUES (?,?,?)',
+                    [req.body.naam, req.body.beschrijving, req.user.id],
                     (err, rows, fields) => {
                         connection.release()
                         if (err) {
@@ -69,7 +67,7 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_studentenhuis',
+                connection.query('SELECT * FROM view_categorie',
                 (err, rows, fields) => {
                     connection.release()
                     if (err) {
@@ -108,7 +106,7 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_studentenhuis WHERE ID = ?', [req.params.huisId],
+                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [req.params.huisId],
                 (err, rows, fields) => {
                     connection.release()
                     if (err) {
@@ -134,11 +132,9 @@ module.exports = {
         // req moet de juiste attributen hebben - het nieuwe studentenhuis
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
-            assert(typeof (req.body.adres) === 'string', 'adres must be a string.')
-            assert(typeof (req.body.lat) === 'string', 'lat must be a string.')
-            assert(typeof (req.body.long) === 'string', 'long must be a string.')
+            assert(typeof (req.body.beschrijving) === 'string', 'beschrijving must be a string.')
         } catch (ex) {
             const error = new ApiError(ex.toString(), 500)
             next(error)
@@ -156,7 +152,7 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_studentenhuis WHERE ID = ?', [ ID ],
+                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [ ID ],
                 (err, rows, fields) => {
                     connection.release()
                     if (err) {
@@ -178,7 +174,7 @@ module.exports = {
                             } else {
                                 //  - zo ja, dan SQL query UPDATE
                                 db.query(
-                                    'UPDATE studentenhuis SET Naam = ? WHERE ID = ?', 
+                                    'UPDATE categorie SET Naam = ? WHERE ID = ?',
                                     [ req.body.naam, req.params.huisId], 
                                     (err, rows, fields) => {
                                         if(err) {

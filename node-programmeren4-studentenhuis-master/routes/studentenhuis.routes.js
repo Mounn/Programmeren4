@@ -4,9 +4,9 @@
 'use strict';
 
 let routes = require('express').Router()
-const StudentenhuisController = require('../controllers/studentenhuis.controller')
-const MaaltijdController = require('../controllers/maaltijd.controller')
-const DeelnemerController = require('../controllers/deelnemer.controller')
+const CategorieController = require('../controllers/categorie.controller')
+const SpullenController = require('../controllers/spullen.controller')
+const DelerController = require('../controllers/deler.controller')
 const UploadController = require('../controllers/upload.controller')
 
 /**
@@ -80,7 +80,7 @@ const UploadController = require('../controllers/upload.controller')
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.post('/studentenhuis', StudentenhuisController.create)
+routes.post('/categorie', CategorieController.create)
 
 /**
  * Vervang het studentenhuis met de gegeven huisId door de informatie van het studentenhuis 
@@ -101,7 +101,7 @@ routes.post('/studentenhuis', StudentenhuisController.create)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet wijzigen)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.put('/studentenhuis/:huisId', StudentenhuisController.update)
+routes.put('/categorie/:categorienId', CategorieController.update)
 
 /**
  * Verwijder het studentenhuis met de gegeven huisId.
@@ -118,7 +118,7 @@ routes.put('/studentenhuis/:huisId', StudentenhuisController.update)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId bestaat niet)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.delete('/studentenhuis/:huisId', StudentenhuisController.delete)
+routes.delete('/categorie/:categorienId', CategorieController.delete)
 
 /**
  * Maak een nieuwe maaltijd voor een studentenhuis. De ID van de gebruiker die de maaltijd
@@ -137,7 +137,7 @@ routes.delete('/studentenhuis/:huisId', StudentenhuisController.delete)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId bestaat niet)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.post('/studentenhuis/:huisId/maaltijd', MaaltijdController.create)
+routes.post('/categorie/:categorienId/spullen', SpullenController.create)
 
 /**
  * Vervang de maaltijd met het gegeven maaltijdId door de nieuwe maaltijd in de request body.
@@ -157,7 +157,7 @@ routes.post('/studentenhuis/:huisId/maaltijd', MaaltijdController.create)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet wijzigen)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.put('/studentenhuis/:huisId/maaltijd/:maaltijdId', MaaltijdController.update)
+routes.put('/categorie/:categorienId/spullen/:spullenId', SpullenController.update)
 
 /**
  * Verwijder de maaltijd met het gegeven maaltijdId.
@@ -173,7 +173,7 @@ routes.put('/studentenhuis/:huisId/maaltijd/:maaltijdId', MaaltijdController.upd
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/studentenhuis/:huisId/maaltijd/:maaltijdId', MaaltijdController.delete)
+routes.delete('/categorie/:categorienId/spullen/:spullenId', SpullenController.delete)
 
 /**
  * Meld je aan voor een maaltijd in een studentenhuis. 
@@ -191,7 +191,7 @@ routes.delete('/studentenhuis/:huisId/maaltijd/:maaltijdId', MaaltijdController.
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker is al aangemeld)
  */
-routes.post('/studentenhuis/:huisId/maaltijd/:maaltijdId/deelnemers', DeelnemerController.create)
+routes.post('/categorie/:categorienId/spullen/:spullenId/delers', DelerController.create)
 
 /**
  * Verwijder een deelnemer.
@@ -207,6 +207,6 @@ routes.post('/studentenhuis/:huisId/maaltijd/:maaltijdId/deelnemers', DeelnemerC
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/studentenhuis/:huisId/maaltijd/:maaltijdId', DeelnemerController.delete)
+routes.delete('/categorie/:categorienId/spullen/:spullenId', DelerController.delete)
 
 module.exports = routes

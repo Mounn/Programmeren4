@@ -11,7 +11,7 @@ const logger = require('../config/config').logger
 module.exports = {
 
     /**
-     * Aanmelden voor een maaltijd in een studentenhuis.
+     * Spullen te koop aanbieden
      */
     create(req, res, next) {
 
@@ -25,11 +25,11 @@ module.exports = {
         }
 
         try {
-            const huisId = req.params.huisId
+            const categorienId = req.params.categorienId
             const spullenId = req.params.spullenId
             const userId = req.user.id
-            const query = 'INSERT INTO `deelnemers` (UserID, StudentenhuisID, SpullenID) VALUES (?, ?, ?)'
-            const values = [userId, huisId, spullenId]
+            const query = 'INSERT INTO `deelnemers` (UserID, CategorieID, SpullenID) VALUES (?, ?, ?)'
+            const values = [userId, categorienId, spullenId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -67,10 +67,10 @@ module.exports = {
     getAll(req, res, next) {
 
         try {
-            const huisId = req.params.huisId
+            const categorienId = req.params.categorienId
             const spullenId = req.params.spullenId
-            const query = 'SELECT Voornaam, Achternaam, Email FROM view_deelnemers WHERE StudentenhuisID = ? AND SpullenID = ?'
-            const values = [huisId, spullenId]
+            const query = 'SELECT Voornaam, Achternaam, Email FROM view_delers WHERE CategorieID = ? AND SpullenID = ?'
+            const values = [categorienId, spullenId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -85,7 +85,7 @@ module.exports = {
                         next(error);
                     }
                     if (rows.length === 0) {
-                        const error = new ApiError('Non-exiting studentenhuis or spullen.', 404)
+                        const error = new ApiError('Non-exiting categorie or spullen.', 404)
                         next(error);
                     } else {
                         res.status(200).json({result: rows}).end()

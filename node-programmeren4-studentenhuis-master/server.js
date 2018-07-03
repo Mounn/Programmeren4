@@ -5,8 +5,8 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const user_routes = require('./routes/user.routes')
 const authenticationroutes = require('./routes/authentication.routes')
-const studentenhuisroutes = require('./routes/studentenhuis.routes')
-const studentenhuis_open_routes = require('./routes/studentenhuis.open.routes')
+const categorieroutes = require('./routes/categorie.routes')
+const categorie_open_routes = require('./routes/categorie.open.routes')
 const AuthController = require('./controllers/authentication.controller')
 const ApiError = require('./model/ApiError')
 const settings = require('./config/config')
@@ -79,14 +79,14 @@ app.use(function (req, res, next) {
 app.use('/api', authenticationroutes)
 
 // GET routes are UNPROTECTED
-app.use('/api', studentenhuis_open_routes)
+app.use('/api', categorie_open_routes)
 
 // JWT TOKEN VALIDATION for authentication
 app.use('/api', AuthController.validateToken);
 
 // PROTECTED endpoints
 app.use('/api', user_routes)
-app.use('/api', studentenhuisroutes)
+app.use('/api', categorieroutes)
 
 // Postprocessing; catch all non-existing endpoint requests
 app.use('*', function (req, res, next) {
