@@ -1,0 +1,49 @@
+{
+  "name": "programmeren4-studentenhuis",
+  "version": "1.0.0",
+  "description": "Uitwerking van tentamen periode 4 kans 1.",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec --exit",
+    "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=8.x",
+    "npm": ">=6.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avansinformatica/node-programmeren4-studentenhuis.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Robin Schellius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avansinformatica/node-programmeren4-studentenhuis/issues"
+  },
+  "homepage": "https://github.com/avansinformatica/node-programmeren4-studentenhuis#readme",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "body-parser": "1.18.3",
+    "express": "4.16.3",
+    "express-swagger-generator": "1.1.1",
+    "express-swaggerize-ui": "1.0.2",
+    "formidable": "1.2.1",
+    "fs": "0.0.1-security",
+    "jwt-simple": "0.5.1",
+    "moment": "2.22.2",
+    "morgan": "1.9.0",
+    "mysql": "2.15.0",
+    "path": "^0.12.7",
+    "tracer": "0.8.15"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "chai-http": "4.0.0",
+    "mocha": "5.2.0",
+    "nodemon": "1.17.5"
+  }
+}
