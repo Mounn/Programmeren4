@@ -11,7 +11,7 @@ const logger = require('../config/config').logger
 module.exports = {
 
     /**
-     * Aanmelden voor een maaltijd in een studentenhuis.
+     * Aanmelden voor een maaltijd in een categorie.
      */
     create(req, res, next) {
 
@@ -69,7 +69,7 @@ module.exports = {
         try {
             const huisId = req.params.huisId
             const maaltijdId = req.params.maaltijdId
-            const query = 'SELECT Voornaam, Achternaam, Email FROM view_deelnemers WHERE StudentenhuisID = ? AND MaaltijdID = ?'
+            const query = 'SELECT Voornaam, Achternaam, Email FROM view_delers WHERE categorieID = ? AND spullenID = ?'
             const values = [huisId, maaltijdId]
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -85,7 +85,7 @@ module.exports = {
                         next(error);
                     }
                     if (rows.length === 0) {
-                        const error = new ApiError('Non-exiting studentenhuis or maaltijd.', 404)
+                        const error = new ApiError('Non-exiting categorie or maaltijd.', 404)
                         next(error);
                     } else {
                         res.status(200).json({result: rows}).end()
@@ -100,7 +100,7 @@ module.exports = {
     },
 
     /**
-     * Afmelden voor een maaltijd in een studentenhuis.
+     * Afmelden voor een maaltijd in een categorie.
      * Natuurlijk alleen als je aangemeld bent.
      */
     delete(req, res, next) {

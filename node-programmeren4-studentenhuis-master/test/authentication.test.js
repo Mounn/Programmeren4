@@ -24,7 +24,7 @@ describe('Registration', () => {
         // Ideally we want a separate database for running tests.
         try {
             // const query = 'DELETE FROM `user` WHERE `Email` = ?'
-            let query = 'DELETE FROM `studentenhuis` WHERE `UserID` = (SELECT `ID` FROM `user` WHERE `Email` = ?)'
+            let query = 'DELETE FROM `categorie` WHERE `UserID` = (SELECT `ID` FROM `user` WHERE `Email` = ?)'
             let values = [email]
             db.query(query, values, (err, rows, fields) => {
                 if (err) {

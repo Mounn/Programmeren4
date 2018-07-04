@@ -1,5 +1,5 @@
-# Nodejs Programmeren 4 tentamen - Studentenhuis
-Nodejs server die een api biedt voor functionaliteit rond users, studentenhuizen, maaltijden en deelnemers aan een maaltijd. Users kunnen zich registreren en een studentenhuis maken. Binnen een studentenhuis kan een maaltijd gemaakt worden. Andere users kunnen deelnemen aan een maaltijd. De app maakt gebruik van een MySQL database.
+# Nodejs Programmeren 4 tentamen - categorie
+Nodejs server die een api biedt voor functionaliteit rond users, categorieen, maaltijden en delers aan een maaltijd. Users kunnen zich registreren en een categorie maken. Binnen een categorie kan een maaltijd gemaakt worden. Andere users kunnen deelnemen aan een maaltijd. De app maakt gebruik van een MySQL database.
 
 ## Documentation
 See the Swagger documentation on [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/) and online on [Heroku](https://mee-eten.herokuapp.com/api-docs/).
@@ -22,7 +22,7 @@ This server contains:
 
 ## Usage
 - Fork this repo and clone your copy onto your local machine.
-- Import the studentenhuis.sql script into your MySQL database.
+- Import the categorie.sql script into your MySQL database.
 
 Then run
 
