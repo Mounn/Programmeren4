@@ -152,17 +152,18 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [ID],
+                connection.query('SELECT * FROM categorie WHERE ID = ?', [ ID ],
                     (err, rows, fields) => {
                         connection.release()
                         if (err) {
-                            const error = new ApiError(err, 412)
+                            const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief. of een verkeerde account", 412)
                             next(error);
                         } else {
                             // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
+                            logger.debug("ROWS: " + rows)
                             if (rows.length !== 1) {
                                 // zo nee, dan error
-                                const error = new ApiError(err, 404)
+                                const error = new ApiError("Niet gevonden (categorieId bestaat niet)", 404)
                                 next(error);
                             } else {
                                 // zo ja, dan
@@ -173,17 +174,28 @@ module.exports = {
                                     next(error);
                                 } else {
                                     //  - zo ja, dan SQL query UPDATE
-                                    db.query(
-                                        'UPDATE categorie SET Naam = ? WHERE ID = ?',
-                                        [req.body.naam, req.params.huisId],
+                                    pool.query(
+                                        'UPDATE categorie SET Naam = ?, Beschrijving = ? WHERE ID = ?',
+                                        [ req.body.naam, req.body.beschrijving, ID],
                                         (err, rows, fields) => {
                                             if (err) {
                                                 // handle error
-                                                const error = new ApiError(err, 412)
+                                                const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief", 412)
                                                 next(error);
                                             } else {
                                                 // handle success
-                                                res.status(200).json({result: rows}).end()
+                                                pool.query(
+                                                    'SELECT * FROM view_categorie WHERE ID = ?',
+                                                    [ ID ],
+                                                    (err, rows, fields) => {
+                                                        if(err) {
+                                                            // handle error
+                                                            const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief", 412)
+                                                            next(error);
+                                                        } else {
+                                                            res.status(200).json({ result: rows }).end()
+                                                        }
+                                                    })
                                             }
                                         })
                                 }
