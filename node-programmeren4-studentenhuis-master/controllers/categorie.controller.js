@@ -58,7 +58,6 @@ module.exports = {
      * De user ID zit in het request na validatie! 
      */
     getAll(req, res, next) {
-
         try {
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -86,8 +85,8 @@ module.exports = {
     },
 
     /**
-     * Haal alle items op voor de user met gegeven id. 
-     * De user ID zit in het request na validatie! 
+     * Haal alle items op voor de user met gegeven id.
+     * De user ID zit in het request na validatie!
      */
     getById(req, res, next) {
         try {

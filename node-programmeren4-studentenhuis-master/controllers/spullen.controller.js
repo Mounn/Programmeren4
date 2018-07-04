@@ -61,9 +61,14 @@ module.exports = {
      */
     getAll(req, res, next) {
         try {
-            const huisId = req.params.huisId
-            const query = 'SELECT ID, Naam, Beschrijving, Merk, Soort, Bouwjaar FROM spullen WHERE categorieID = ?'
-            const values = [huisId]
+            assert(req.params.huisId, 'ID is missing!')
+        } catch (ex) {
+            const error = new ApiError(ex.toString(), 500)
+            next(error)
+            return
+        }
+
+        try {
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -71,19 +76,20 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query(query, (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        res.status(200).json({result: rows}).end()
-                    }
-                })
+                connection.query('SELECT * FROM spullen WHERE CategorieID = ?', [req.params.huisId],
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
+                            next(error);
+                        } else {
+                            res.status(200).json({ result: rows[0] }).end()
+                        }
+                    })
             })
         } catch (ex) {
             logger.error(ex)
-            const error = new ApiError(ex, 500)
+            const error = new ApiError(ex, 412)
             next(error);
         }
     },

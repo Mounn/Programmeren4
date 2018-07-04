@@ -26,8 +26,20 @@
       <file leaf-file-name="spullen.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="108" column="72" lean-forward="true" selection-start-line="108" selection-start-column="72" selection-end-line="108" selection-end-column="72" />
+            <state relative-caret-position="437">
+              <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1366">
+              <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -35,8 +47,8 @@
       <file leaf-file-name="categorie.routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/categorie.routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="7" column="70" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="70" />
+            <state relative-caret-position="1552">
+              <caret line="111" column="3" lean-forward="true" selection-start-line="111" selection-start-column="3" selection-end-line="111" selection-end-column="3" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -53,11 +65,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="179" column="64" lean-forward="true" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
+            <state relative-caret-position="2975">
+              <caret line="175" column="38" lean-forward="true" selection-start-line="175" selection-start-column="38" selection-end-line="175" selection-end-column="38" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,10 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>studen</find>
-      <find>Studentenhuis</find>
-      <find>Stude</find>
-      <find>userI</find>
       <find>deelnemers</find>
       <find>image</find>
       <find>Beschr</find>
@@ -88,14 +99,18 @@
       <find>requestId</find>
       <find>d</find>
       <find>meals</find>
-      <find>get</find>
       <find>delete</find>
       <find>put</find>
-      <find>deelnemer</find>
       <find>update</find>
       <find>meal</find>
       <find>Adres</find>
       <find>conn</find>
+      <find>upda</find>
+      <find>huisid</find>
+      <find>categorie</find>
+      <find>deelnemer</find>
+      <find>get</find>
+      <find>all</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
@@ -110,8 +125,8 @@
       <replace>Bouwjaar</replace>
       <replace>items</replace>
       <replace>deler</replace>
-      <replace>item</replace>
       <replace>connection</replace>
+      <replace>item</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -154,10 +169,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="-1719" />
+    <option name="y" value="-1" />
+    <option name="width" value="1844" />
+    <option name="height" value="765" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -243,26 +258,27 @@
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12571000" />
       <workItem from="1530701097530" duration="674000" />
-      <workItem from="1530702342006" duration="8389000" />
+      <workItem from="1530702342006" duration="13102000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29539000" />
+    <option name="totallyTimeSpent" value="34252000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12545235" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50060314" side_tool="true" weight="0.14864865" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" x="-1680" y="917" width="1658" height="240" id="Terminal" order="7" visible="true" weight="0.14864865" />
+      <window_info active="true" anchor="bottom" x="-1680" y="917" width="1658" height="240" id="Terminal" order="7" sideWeight="0.49939686" visible="true" weight="0.25112614" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -540,16 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2975">
-          <caret line="175" column="38" lean-forward="true" selection-start-line="175" selection-start-column="38" selection-end-line="175" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/auth/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
@@ -652,10 +658,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="175" column="38" lean-forward="true" selection-start-line="175" selection-start-column="38" selection-end-line="175" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/categorie.routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="7" column="70" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="70" />
+        <state relative-caret-position="1552">
+          <caret line="111" column="3" lean-forward="true" selection-start-line="111" selection-start-column="3" selection-end-line="111" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -664,15 +680,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="108" column="72" lean-forward="true" selection-start-line="108" selection-start-column="72" selection-end-line="108" selection-end-column="72" />
+        <state relative-caret-position="437">
+          <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="179" column="64" lean-forward="true" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
+        <state relative-caret-position="1366">
+          <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
         </state>
       </provider>
     </entry>
