@@ -61,14 +61,6 @@ module.exports = {
      */
     getAll(req, res, next) {
         try {
-            assert(req.params.huisId, 'ID is missing!')
-        } catch (ex) {
-            const error = new ApiError(ex.toString(), 500)
-            next(error)
-            return
-        }
-
-        try {
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -83,13 +75,13 @@ module.exports = {
                             const error = new ApiError(err, 412)
                             next(error);
                         } else {
-                            res.status(200).json({ result: rows[0] }).end()
+                            res.status(200).json({result: rows}).end()
                         }
                     })
             })
         } catch (ex) {
             logger.error(ex)
-            const error = new ApiError(ex, 412)
+            const error = new ApiError(ex, 500)
             next(error);
         }
     },

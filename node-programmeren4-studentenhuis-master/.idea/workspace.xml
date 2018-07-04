@@ -23,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spullen.controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spullen.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+            <state relative-caret-position="544">
+              <caret line="125" column="6" lean-forward="true" selection-start-line="92" selection-end-line="125" selection-end-column="6" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1366">
-              <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+            <state relative-caret-position="-634">
+              <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -81,7 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>deelnemers</find>
       <find>image</find>
       <find>Beschr</find>
       <find>huisId</find>
@@ -109,8 +108,9 @@
       <find>huisid</find>
       <find>categorie</find>
       <find>deelnemer</find>
-      <find>get</find>
       <find>all</find>
+      <find>existing</find>
+      <find>get</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
@@ -125,8 +125,8 @@
       <replace>Bouwjaar</replace>
       <replace>items</replace>
       <replace>deler</replace>
-      <replace>connection</replace>
       <replace>item</replace>
+      <replace>connection</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -147,8 +147,8 @@
         <option value="$PROJECT_DIR$/controllers/studentenhuis.controller.js" />
         <option value="$PROJECT_DIR$/routes/user.routes.js" />
         <option value="$PROJECT_DIR$/routes/categorie.routes.js" />
-        <option value="$PROJECT_DIR$/controllers/spullen.controller.js" />
         <option value="$PROJECT_DIR$/controllers/categorie.controller.js" />
+        <option value="$PROJECT_DIR$/controllers/spullen.controller.js" />
       </list>
     </option>
   </component>
@@ -168,7 +168,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-1719" />
     <option name="y" value="-1" />
     <option name="width" value="1844" />
@@ -258,12 +258,12 @@
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12571000" />
       <workItem from="1530701097530" duration="674000" />
-      <workItem from="1530702342006" duration="13102000" />
+      <workItem from="1530702342006" duration="13883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34252000" />
+    <option name="totallyTimeSpent" value="35033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
@@ -678,20 +678,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
+    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="-634">
+          <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+    <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1366">
-          <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+        <state relative-caret-position="544">
+          <caret line="125" column="6" lean-forward="true" selection-start-line="92" selection-end-line="125" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
