@@ -102,17 +102,19 @@ module.exports = {
      * Natuurlijk alleen als je aangemeld bent.
      */
     delete(req, res, next) {
-        // req moet de juiste attributen hebben - de nieuwe categorie
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
+            // More validations here.
         } catch (ex) {
             const error = new ApiError(ex.toString(), 500)
             next(error)
             return
         }
-        // Hier hebben we de juiste body als input.
 
-        // 1. Zoek in pool of categorie met huisId bestaat
+        const huisId = req.params.huisId
+        const spullenId = req.params.spullenId
+
+        // 1. Zoek in pool of categorie met categorieId bestaat + spullenId correct is
         try {
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -121,7 +123,7 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM delers WHERE ID = ?', [ req.params.huisId ],
+                connection.query('SELECT * FROM delers WHERE spullenID = ? AND categorieID = ? AND UserID = ?', [ spullenId, huisId, req.user.id],
                     (err, rows, fields) => {
                         connection.release()
                         if (err) {
@@ -129,33 +131,25 @@ module.exports = {
                             next(error);
                         } else {
                             // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
-                            if(rows.length !== 1) {
+                            if(rows[0].UserID !== req.user.id) {
                                 // zo nee, dan error
-                                const error = new ApiError("Niet gevonden (categorieId bestaat niet)", 404)
+                                const error = new ApiError("deler and user do not match", 404)
                                 next(error);
                             } else {
-                                // zo ja, dan
-                                // - check eerst of de huidige user de 'eigenaar' van het categorie is
-                                if(rows[0].UserID !== req.user.id) {
-                                    //  - zo nee, error
-                                    const error = new ApiError("Je mag alleen je eigen categorien verwijderen, dit is iemands anders categorie id= " + rows[0].UserID, 412)
-                                    next(error);
-                                } else {
-                                    //  - zo ja, dan SQL query DELETE
-                                    pool.query(
-                                        'DELETE FROM delers WHERE ID = ?',
-                                        [ req.params.huisId ],
-                                        (err, rows, fields) => {
-                                            if(err) {
-                                                // handle error
-                                                const error = new ApiError(err, 412)
-                                                next(error);
-                                            } else {
-                                                // handle success
-                                                res.status(200).json({ result: "je hebt succesvol je delers verwijdert!"}).end()
-                                            }
-                                        })
-                                }
+                                //  - zo ja, dan SQL query UPDATE
+                                pool.query(
+                                    'DELETE FROM delers WHERE UserID = ? AND spullenID =? AND categorieID = ?',
+                                    [req.user.id, spullenId, huisId],
+                                    (err, rows, fields) => {
+                                        if(err) {
+                                            // handle error
+                                            const error = new ApiError(err, 412)
+                                            next(error);
+                                        } else {
+                                            // handle success
+                                            res.status(200).json({ result: rows }).end()
+                                        }
+                                    })
                             }
                         }
                     })
