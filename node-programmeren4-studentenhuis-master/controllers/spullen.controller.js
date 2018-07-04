@@ -26,7 +26,7 @@ module.exports = {
         try {
             const huisId = req.params.huisId
             const userId = req.user.id
-            const query = 'INSERT INTO `maaltijd` (Naam, Beschrijving, Ingredienten, Allergie, Prijs, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
+            const query = 'INSERT INTO `spullen` (Naam, Beschrijving, Merk, Soort, Bouwjaar, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
             const values = [req.body.naam, req.body.beschrijving, req.body.ingredienten, req.body.allergie, req.body.prijs, userId, huisId]
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -62,7 +62,7 @@ module.exports = {
     getAll(req, res, next) {
         try {
             const huisId = req.params.huisId
-            const query = 'SELECT ID, Naam, Beschrijving, Ingredienten, Allergie, Prijs FROM maaltijd WHERE categorieID = ?'
+            const query = 'SELECT ID, Naam, Beschrijving, Merk, Soort, Bouwjaar FROM spullen WHERE categorieID = ?'
             const values = [huisId]
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -92,13 +92,13 @@ module.exports = {
      * Haal alle items op voor de user met gegeven id. 
      * De user ID zit in het request na validatie! 
      */
-    getMaaltijdById(req, res, next) {
+    getSpullenById(req, res, next) {
 
         try {
             const huisId = req.params.huisId
-            const maaltijdId = req.params.maaltijdId
-            const query = 'SELECT ID, Naam, Beschrijving, Ingredienten, Allergie, Prijs FROM maaltijd WHERE categorieID = ? AND ID = ?'
-            const values = [huisId, maaltijdId]
+            const spullenId = req.params.spullenId
+            const query = 'SELECT ID, Naam, Beschrijving, Merk, Soort, Bouwjaar FROM spullen WHERE categorieID = ? AND ID = ?'
+            const values = [huisId, spullenId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -113,7 +113,7 @@ module.exports = {
                         next(error);
                     }
                     if (rows.length === 0) {
-                        const error = new ApiError('Non-exiting maaltijd or not allowed to access it.', 404)
+                        const error = new ApiError('Non-exiting spullen or not allowed to access it.', 404)
                         next(error);
                     } else {
                         res.status(200).json({result: rows[0]}).end()

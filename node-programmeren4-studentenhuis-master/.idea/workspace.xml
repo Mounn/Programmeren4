@@ -13,7 +13,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="spullen.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1751">
+              <caret line="115" column="72" selection-start-line="115" selection-start-column="72" selection-end-line="115" selection-end-column="72" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -24,7 +37,7 @@
       <find>path</find>
       <find>filepath</find>
       <find>secret</find>
-      <find>no token</find>
+      <find />
       <find>adres</find>
       <find>fieldcoun</find>
       <find>x-acc</find>
@@ -40,10 +53,14 @@
       <find>huisId</find>
       <find>PUT</find>
       <find>put</find>
+      <find>get</find>
+      <find>maaltijd</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
       <replace>delers</replace>
+      <replace />
+      <replace />
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -62,6 +79,7 @@
         <option value="$PROJECT_DIR$/controllers/maaltijd.controller.js" />
         <option value="$PROJECT_DIR$/routes/authentication.routes.js" />
         <option value="$PROJECT_DIR$/controllers/studentenhuis.controller.js" />
+        <option value="$PROJECT_DIR$/controllers/spullen.controller.js" />
       </list>
     </option>
   </component>
@@ -80,10 +98,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1777" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="100" />
+    <option name="y" value="-13" />
+    <option name="width" value="1539" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -96,6 +114,11 @@
             <path>
               <item name="node-programmeren4-studentenhuis-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="node-programmeren4-studentenhuis-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node-programmeren4-studentenhuis-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node-programmeren4-studentenhuis-master" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="node-programmeren4-studentenhuis-master" type="b2602c69:ProjectViewProjectNode" />
@@ -149,24 +172,24 @@
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12120000" />
       <workItem from="1530690942806" duration="244000" />
-      <workItem from="1530691202438" duration="669000" />
+      <workItem from="1530691202438" duration="1256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20956000" />
+    <option name="totallyTimeSpent" value="21543000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="16" y="659" width="1539" height="746" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12545235" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13857429" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26914415" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3930921" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -186,7 +209,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/authentication.routes.js" />
     <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js" />
     <entry file="file://$PROJECT_DIR$/test/studentenhuis.routes.test.js" />
     <entry file="file://$PROJECT_DIR$/controllers/studentenhuis.controller.js" />
@@ -257,5 +279,15 @@
     <entry file="file://$PROJECT_DIR$/model/ApiError.js" />
     <entry file="file://$PROJECT_DIR$/routes/categorie.open.routes.js" />
     <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js" />
+    <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="115" column="72" selection-start-line="115" selection-start-column="72" selection-end-line="115" selection-end-column="72" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
