@@ -52,20 +52,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categorie.open.routes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="categorie.open.routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/categorie.open.routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="204">
+              <caret line="14" column="85" lean-forward="true" selection-start-line="14" selection-start-column="85" selection-end-line="14" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delers.controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="delers.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="476">
+              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+              <folding>
+                <element signature="e#2130#3448#0" />
+                <element signature="e#3593#3688#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="275" column="9" lean-forward="true" selection-start-line="213" selection-start-column="8" selection-end-line="275" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -74,9 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Stude</find>
-      <find>userI</find>
-      <find>deelnemers</find>
       <find>image</find>
       <find>Beschr</find>
       <find>huisId</find>
@@ -104,6 +114,9 @@
       <find>categorie</find>
       <find>412</find>
       <find>pool</find>
+      <find>Deelnemer</find>
+      <find>deelnemer</find>
+      <find>DeelnemerController</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
@@ -117,6 +130,7 @@
       <replace>bouwjaar</replace>
       <replace>Bouwjaar</replace>
       <replace>huisId</replace>
+      <replace>Delers</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -139,6 +153,7 @@
         <option value="$PROJECT_DIR$/routes/categorie.routes.js" />
         <option value="$PROJECT_DIR$/controllers/categorie.controller.js" />
         <option value="$PROJECT_DIR$/routes/categorie.open.routes.js" />
+        <option value="$PROJECT_DIR$/controllers/delers.controller.js" />
       </list>
     </option>
   </component>
@@ -159,8 +174,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="844" />
-    <option name="width" value="1083" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -241,27 +256,27 @@
       <workItem from="1530370960350" duration="6713000" />
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12571000" />
-      <workItem from="1530701097530" duration="12721000" />
+      <workItem from="1530701097530" duration="13348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33197000" />
+    <option name="totallyTimeSpent" value="33824000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="844" y="0" width="1083" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24019139" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13224447" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.13492823" side_tool="true" visible="true" weight="0.32893288" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.12170706" side_tool="true" visible="true" weight="0.32570806" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.8650718" visible="true" weight="0.32893288" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.8782929" visible="true" weight="0.32570806" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -356,15 +371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2414">
           <caret line="144" column="13" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="13" />
-          <folding>
-            <element signature="e#254#1932#0" />
-            <element signature="e#2086#2977#0" />
-            <element signature="e#3132#4267#0" />
-            <element signature="e#4364#7586#0" />
-            <element signature="e#4742#5121#0" />
-            <element signature="e#5406#7895#0" />
-            <element signature="e#7834#8506#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -641,22 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="276" column="5" lean-forward="true" selection-start-line="276" selection-start-column="5" selection-end-line="276" selection-end-column="5" />
-          <folding>
-            <element signature="e#254#1932#0" />
-            <element signature="e#2086#2977#0" />
-            <element signature="e#3132#4267#0" />
-            <element signature="e#4364#7586#0" />
-            <element signature="e#4742#5121#0" />
-            <element signature="e#5406#7895#0" />
-            <element signature="e#7834#8506#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -664,23 +654,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -696,8 +669,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/categorie.open.routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="204">
+          <caret line="14" column="85" lean-forward="true" selection-start-line="14" selection-start-column="85" selection-end-line="14" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="275" column="9" lean-forward="true" selection-start-line="213" selection-start-column="8" selection-end-line="275" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+          <folding>
+            <element signature="e#2130#3448#0" />
+            <element signature="e#3593#3688#0" />
+          </folding>
         </state>
       </provider>
     </entry>
