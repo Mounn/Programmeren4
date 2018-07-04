@@ -32,6 +32,6 @@ let UserController = require('../controllers/user.controller')
 routes.get('/users/me', UserController.getUserProfile)
 
 // routes.put('/users/me', UserController.updateUserById)
-// routes.delete('/users/me', UserController.deleteUserById)
+routes.delete('/users/me', UserController.deleteUserById)
 
 module.exports = routes

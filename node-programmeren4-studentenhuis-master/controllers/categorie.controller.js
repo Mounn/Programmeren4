@@ -166,15 +166,15 @@ module.exports = {
                             next(error);
                         } else {
                             // zo ja, dan
-                            // - check eerst of de huidige user de 'eigenaar' van het categorie is
-                            if(rows[0].UserID !== req.user.id) {
-                                //  - zo nee, error
-                                const error = new ApiError(err, 412)
+
+                            if(rows[0].UserID != req.user.id) {
+                                console.log("Request mislukt.")
+                                const error = new ApiError('Gebruiker mag deze data niet wijzigen. Alleen de maker mag dat.', 412)
                                 next(error);
                             } else {
                                 //  - zo ja, dan SQL query UPDATE
                                 db.query(
-                                    'UPDATE categorie SET Naam = ? WHERE ID = ?',
+                                    'UPDATE categorie SET `Naam` = \'' + name + '\', `Beschrijving` = \'' + beschrijving + '\' WHERE `UserID`= ' + id + ' AND `ID` = ' + houseId + '',
                                     [ req.body.naam, req.params.huisId], 
                                     (err, rows, fields) => {
                                         if(err) {
