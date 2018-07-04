@@ -14,14 +14,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="spullen.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="115" column="72" selection-start-line="115" selection-start-column="72" selection-end-line="115" selection-end-column="72" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="154">
+              <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categorie.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/categorie.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3417">
+              <caret line="203" column="70" selection-start-line="203" selection-start-column="70" selection-end-line="203" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delers.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiError.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/ApiError.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="User.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/User.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/upload.controller.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-119">
+              <caret line="1" column="263" selection-start-line="1" selection-start-column="263" selection-end-line="1" selection-end-column="263" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/express/lib/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="617" column="23" selection-start-line="617" selection-start-column="23" selection-end-line="617" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -37,7 +103,7 @@
       <find>path</find>
       <find>filepath</find>
       <find>secret</find>
-      <find />
+      <find>no token</find>
       <find>adres</find>
       <find>fieldcoun</find>
       <find>x-acc</find>
@@ -54,13 +120,17 @@
       <find>PUT</find>
       <find>put</find>
       <find>get</find>
+      <find>Deelnemers</find>
+      <find>deelnemer</find>
       <find>maaltijd</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
       <replace>delers</replace>
-      <replace />
-      <replace />
+      <replace>Merk, Soort, Bouwjaar, UserID, categorieID</replace>
+      <replace>Merk, Soort, Bouwjaar</replace>
+      <replace>deler</replace>
+      <replace>spullen</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -80,6 +150,9 @@
         <option value="$PROJECT_DIR$/routes/authentication.routes.js" />
         <option value="$PROJECT_DIR$/controllers/studentenhuis.controller.js" />
         <option value="$PROJECT_DIR$/controllers/spullen.controller.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/routes/categorie.routes.js" />
+        <option value="$PROJECT_DIR$/controllers/delers.controller.js" />
       </list>
     </option>
   </component>
@@ -97,9 +170,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="-13" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="39" />
+    <option name="y" value="55" />
     <option name="width" value="1539" />
     <option name="height" value="746" />
   </component>
@@ -172,24 +245,25 @@
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12120000" />
       <workItem from="1530690942806" duration="244000" />
-      <workItem from="1530691202438" duration="1256000" />
+      <workItem from="1530691202438" duration="1889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21543000" />
+    <option name="totallyTimeSpent" value="22176000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="659" width="1539" height="746" extended-state="0" />
+    <frame x="39" y="55" width="1539" height="746" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13857429" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3930921" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38980263" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -199,7 +273,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,14 +282,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js" />
     <entry file="file://$PROJECT_DIR$/test/studentenhuis.routes.test.js" />
     <entry file="file://$PROJECT_DIR$/controllers/studentenhuis.controller.js" />
     <entry file="file://$PROJECT_DIR$/controllers/maaltijd.controller.js" />
     <entry file="file://$PROJECT_DIR$/controllers/deelnemer.controller.js" />
     <entry file="file://$PROJECT_DIR$/routes/studentenhuis.routes.js" />
     <entry file="file://$PROJECT_DIR$/routes/studentenhuis.open.routes.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/application.js" />
     <entry file="file://$PROJECT_DIR$/server.js" />
     <entry file="file://$PROJECT_DIR$/controllers/upload.controller.js" />
     <entry file="file://$PROJECT_DIR$/routes/authentication.routes.js" />
@@ -253,8 +324,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/jwt-simple/lib/jwt.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/route.js" />
     <entry file="file://$PROJECT_DIR$/test/authentication.test.js" />
-    <entry file="file://$PROJECT_DIR$/controllers/upload.controller.js" />
-    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js" />
     <entry file="file://$PROJECT_DIR$/routes/user.routes.js" />
     <entry file="file://$PROJECT_DIR$/util/auth/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -263,7 +332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js" />
     <entry file="file://$PROJECT_DIR$/config/config.js" />
     <entry file="file://$PROJECT_DIR$/controllers/maaltijd.controller.js" />
     <entry file="file://$PROJECT_DIR$/util/emailvalidator.js">
@@ -271,14 +339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/db.js" />
     <entry file="file://$PROJECT_DIR$/routes/authentication.routes.js" />
-    <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js" />
     <entry file="file://$PROJECT_DIR$/test/studentenhuis.routes.test.js" />
-    <entry file="file://$PROJECT_DIR$/routes/categorie.routes.js" />
-    <entry file="file://$PROJECT_DIR$/server.js" />
-    <entry file="file://$PROJECT_DIR$/model/User.js" />
-    <entry file="file://$PROJECT_DIR$/model/ApiError.js" />
     <entry file="file://$PROJECT_DIR$/routes/categorie.open.routes.js" />
-    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js" />
     <entry file="file://$PROJECT_DIR$/controllers/spullen.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1751">
@@ -288,6 +350,71 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/authentication.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/upload.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="1" column="263" selection-start-line="1" selection-start-column="263" selection-end-line="1" selection-end-column="263" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="617" column="23" selection-start-line="617" selection-start-column="23" selection-end-line="617" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/categorie.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3417">
+          <caret line="203" column="70" selection-start-line="203" selection-start-column="70" selection-end-line="203" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/delers.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ApiError.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/User.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

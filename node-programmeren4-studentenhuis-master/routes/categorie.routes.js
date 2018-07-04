@@ -6,7 +6,7 @@
 let routes = require('express').Router()
 const categorieController = require('../controllers/categorie.controller')
 const SpullenController = require('../controllers/spullen.controller')
-const DeelnemerController = require('../controllers/delers.controller')
+const DelerController = require('../controllers/delers.controller')
 const UploadController = require('../controllers/upload.controller')
 
 /**
@@ -59,11 +59,11 @@ const UploadController = require('../controllers/upload.controller')
  */
 
 /**
- * @typedef DeelnemerResponse
+ * @typedef DelerResponse
  * @property {string} voornaam.required
  * @property {string} achternaam.required
  * @property {string} email.required
- * @property {string} image - Afbeelding van de deelnemer
+ * @property {string} image - Afbeelding van de deler
  */
 
 /**
@@ -185,28 +185,28 @@ routes.delete('/categorie/:huisId/spullen/:spullenId', SpullenController.delete)
  * Authenticatie door middel van JWT is vereist. 
  * 
  * @route POST /api/categorie/{huisId}/spullen/{spullenId}/delers
- * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
- * @returns {DeelnemerResponse.model} 200 - Informatie over de toegevoegde deelnemer
+ * @group Delers - Endpoints voor CRD functionaliteit op een deler aan een spullen.
+ * @returns {DelerResponse.model} 200 - Informatie over de toegevoegde deler
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker is al aangemeld)
  */
-routes.post('/categorie/:huisId/spullen/:spullenId/delers', DeelnemerController.create)
+routes.post('/categorie/:huisId/spullen/:spullenId/delers', DelerController.create)
 
 /**
- * Verwijder een deelnemer.
+ * Verwijder een deler.
  * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
- * De deelnemer die wordt verwijderd is de gebruiker met het ID uit het token.
+ * De deler die wordt verwijderd is de gebruiker met het ID uit het token.
  * Een gebruiker kan alleen zijn eigen aanmelding verwijderen. 
  * Authenticatie door middel van JWT is vereist. 
  * 
  * @route DELETE /api/categorie/{huisId}/spullen/{spullenId}/delers
- * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
+ * @group Delers - Endpoints voor CRD functionaliteit op een deler aan een spullen.
  * @returns {object} 200 - Informatie over de verwijderactie
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/categorie/:huisId/spullen/:spullenId', DeelnemerController.delete)
+routes.delete('/categorie/:huisId/spullen/:spullenId', DelerController.delete)
 
 module.exports = routes
