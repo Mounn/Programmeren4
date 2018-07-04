@@ -14,7 +14,7 @@ module.exports = {
 
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
             // More validations here.
         } catch (ex) {
@@ -26,8 +26,8 @@ module.exports = {
         try {
             const huisId = req.params.huisId
             const userId = req.user.id
-            const query = 'INSERT INTO `spullen` (Naam, Beschrijving, Merk, Soort, Bouwjaar, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
-            const values = [req.body.ID, req.body.naam, req.body.beschrijving, req.body.merk, req.body.soort, req.body.bouwjaar, userId, categorieId]
+            const query = 'INSERT INTO `maaltijd` (Naam, Beschrijving, Ingredienten, Allergie, Prijs, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
+            const values = [req.body.naam, req.body.beschrijving, req.body.ingredienten, req.body.allergie, req.body.prijs, userId, huisId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -62,7 +62,7 @@ module.exports = {
     getAll(req, res, next) {
         try {
             const huisId = req.params.huisId
-            const query = 'SELECT ID, Naam, Beschrijving, Merk, Soort, Bouwjaar FROM spullen WHERE categorieID = ?'
+            const query = 'SELECT ID, Naam, Beschrijving, Ingredienten, Allergie, Prijs FROM maaltijd WHERE categorieID = ?'
             const values = [huisId]
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -92,13 +92,13 @@ module.exports = {
      * Haal alle items op voor de user met gegeven id. 
      * De user ID zit in het request na validatie! 
      */
-    getSpullenById(req, res, next) {
+    getMaaltijdById(req, res, next) {
 
         try {
             const huisId = req.params.huisId
-            const spullenId = req.params.spullenId
-            const query = 'SELECT ID, Naam, Beschrijving, Merk, Soort, Bouwjaar FROM spullen WHERE categorieID = ? AND ID = ?'
-            const values = [huisId, spullenId]
+            const maaltijdId = req.params.maaltijdId
+            const query = 'SELECT ID, Naam, Beschrijving, Ingredienten, Allergie, Prijs FROM maaltijd WHERE categorieID = ? AND ID = ?'
+            const values = [huisId, maaltijdId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -113,7 +113,7 @@ module.exports = {
                         next(error);
                     }
                     if (rows.length === 0) {
-                        const error = new ApiError('Non-exiting spullen or not allowed to access it.', 404)
+                        const error = new ApiError('Non-exiting maaltijd or not allowed to access it.', 404)
                         next(error);
                     } else {
                         res.status(200).json({result: rows[0]}).end()

@@ -28,7 +28,7 @@ const expressSwagger = require('express-swagger-generator')(app);
 let options = {
 	swaggerDefinition: {
 		info: {
-			title: 'Avans Programmeren 4 - Studentenhuis casus',
+			title: 'Avans Programmeren 4 - categorie casus',
 			version: '1.0.0',
 			description: description
 		},

@@ -5,9 +5,9 @@ const server = require('../server')
 chai.should()
 chai.use(chaiHttp)
 
-const endpointToTest = '/api/studentenhuis'
+const endpointToTest = '/api/categorie'
 
-describe('Studentenhuis API POST', () => {
+describe('categorie API POST', () => {
     it('should throw an error when using invalid JWT token', (done) => {
         //
         // Hier schrijf je jouw testcase.
@@ -15,7 +15,7 @@ describe('Studentenhuis API POST', () => {
         done()
     })
 
-    it('should return a studentenhuis when posting a valid object', (done) => {
+    it('should return a categorie when posting a valid object', (done) => {
         /**
            * require('authentication.test') forces that test to be run before our tests.
            * That provides us with a valid token that we use for authentication our requests.
@@ -73,7 +73,7 @@ describe('Studentenhuis API POST', () => {
     })
 })
 
-describe('Studentenhuis API GET all', () => {
+describe('categorie API GET all', () => {
     it('should throw an error when using invalid JWT token', (done) => {
         //
         // Hier schrijf je jouw testcase.
@@ -81,7 +81,7 @@ describe('Studentenhuis API GET all', () => {
         done()
     })
 
-    it('should return all studentenhuizen when using a valid token', (done) => {
+    it('should return all categorie when using a valid token', (done) => {
         //
         // Hier schrijf je jouw testcase.
         //
@@ -89,7 +89,7 @@ describe('Studentenhuis API GET all', () => {
     })
 })
 
-describe('Studentenhuis API GET one', () => {
+describe('categorie API GET one', () => {
     it('should throw an error when using invalid JWT token', (done) => {
         //
         // Hier schrijf je jouw testcase.
@@ -97,7 +97,7 @@ describe('Studentenhuis API GET one', () => {
         done()
     })
 
-    it('should return the correct studentenhuis when using an existing huisId', (done) => {
+    it('should return the correct categorie when using an existing huisId', (done) => {
         //
         // Hier schrijf je jouw testcase.
         //
@@ -112,7 +112,7 @@ describe('Studentenhuis API GET one', () => {
     })
 })
 
-describe('Studentenhuis API PUT', () => {
+describe('categorie API PUT', () => {
     it('should throw an error when using invalid JWT token', (done) => {
         //
         // Hier schrijf je jouw testcase.
@@ -120,7 +120,7 @@ describe('Studentenhuis API PUT', () => {
         done()
     })
 
-    it('should return a studentenhuis with ID when posting a valid object', (done) => {
+    it('should return a categorie with ID when posting a valid object', (done) => {
         //
         // Hier schrijf je jouw testcase.
         //
@@ -142,7 +142,7 @@ describe('Studentenhuis API PUT', () => {
     })
 })
 
-describe('Studentenhuis API DELETE', () => {
+describe('categorie API DELETE', () => {
     it('should throw an error when using invalid JWT token', (done) => {
         //
         // Hier schrijf je jouw testcase.
@@ -150,7 +150,7 @@ describe('Studentenhuis API DELETE', () => {
         done()
     })
 
-    it('should return a studentenhuis when posting a valid object', (done) => {
+    it('should return a categorie when posting a valid object', (done) => {
         //
         // Hier schrijf je jouw testcase.
         //

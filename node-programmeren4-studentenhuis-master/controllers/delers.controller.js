@@ -11,7 +11,7 @@ const logger = require('../config/config').logger
 module.exports = {
 
     /**
-     * Spullen te koop aanbieden
+     * Aanmelden voor een maaltijd in een categorie.
      */
     create(req, res, next) {
 
@@ -25,11 +25,11 @@ module.exports = {
         }
 
         try {
-            const categorienId = req.params.categorienId
-            const spullenId = req.params.spullenId
+            const huisId = req.params.huisId
+            const maaltijdId = req.params.maaltijdId
             const userId = req.user.id
-            const query = 'INSERT INTO `deelnemers` (UserID, CategorieID, SpullenID) VALUES (?, ?, ?)'
-            const values = [userId, categorienId, spullenId]
+            const query = 'INSERT INTO `delers` (UserID, categorieID, spullenID) VALUES (?, ?, ?)'
+            const values = [userId, huisId, maaltijdId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -67,10 +67,10 @@ module.exports = {
     getAll(req, res, next) {
 
         try {
-            const categorienId = req.params.categorienId
-            const spullenId = req.params.spullenId
-            const query = 'SELECT Voornaam, Achternaam, Email FROM view_delers WHERE CategorieID = ? AND SpullenID = ?'
-            const values = [categorienId, spullenId]
+            const huisId = req.params.huisId
+            const maaltijdId = req.params.maaltijdId
+            const query = 'SELECT Voornaam, Achternaam, Email FROM view_delers WHERE categorieID = ? AND spullenID = ?'
+            const values = [huisId, maaltijdId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -85,7 +85,7 @@ module.exports = {
                         next(error);
                     }
                     if (rows.length === 0) {
-                        const error = new ApiError('Non-exiting categorie or spullen.', 404)
+                        const error = new ApiError('Non-exiting categorie or maaltijd.', 404)
                         next(error);
                     } else {
                         res.status(200).json({result: rows}).end()
@@ -100,7 +100,7 @@ module.exports = {
     },
 
     /**
-     * Afmelden voor een maaltijd in een studentenhuis.
+     * Afmelden voor een maaltijd in een categorie.
      * Natuurlijk alleen als je aangemeld bent.
      */
     delete(req, res, next) {

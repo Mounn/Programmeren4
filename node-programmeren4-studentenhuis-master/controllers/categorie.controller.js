@@ -129,7 +129,7 @@ module.exports = {
      */
     update(req, res, next) {
 
-        // req moet de juiste attributen hebben - het nieuwe studentenhuis
+        // req moet de juiste attributen hebben - het nieuwe categorie
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
             assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
@@ -143,7 +143,7 @@ module.exports = {
         // Hier hebben we de juiste body als input.
 
         const ID = req.params.huisId
-        // 1. Zoek in db of studentenhuis met huisId bestaat
+        // 1. Zoek in db of categorie met huisId bestaat
         try {
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -159,14 +159,14 @@ module.exports = {
                         const error = new ApiError(err, 412)
                         next(error);
                     } else {
-                        // rows MOET hier 1 waarde bevatten - nl. het gevonden studentenhuis.
+                        // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
                         if(rows.length !== 1) {
                             // zo nee, dan error 
                             const error = new ApiError(err, 404)
                             next(error);
                         } else {
                             // zo ja, dan
-                            // - check eerst of de huidige user de 'eigenaar' van het studentenhuis is
+                            // - check eerst of de huidige user de 'eigenaar' van het categorie is
                             if(rows[0].UserID !== req.user.id) {
                                 //  - zo nee, error
                                 const error = new ApiError(err, 412)
