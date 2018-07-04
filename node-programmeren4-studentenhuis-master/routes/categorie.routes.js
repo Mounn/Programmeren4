@@ -17,6 +17,6 @@ routes.put('/categorie/:huisId/spullen/:spullenId', SpullenController.update)
 routes.delete('/categorie/:huisId/spullen/:spullenId', SpullenController.delete)
 
 routes.post('/categorie/:huisId/spullen/:spullenId/delers', DelersController.create)
-routes.delete('/categorie/:huisId/spullen/:spullenId', DelersController.delete)
+routes.delete('/categorie/:huisId/spullen/:spullenId/delers', DelersController.delete)
 
 module.exports = routes

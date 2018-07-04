@@ -17,7 +17,7 @@ module.exports = {
 
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            // Hier moeten meer validaties komen.
+            // hier moet nog require naam,achternaam,email komen dan select en ophalen in 200 succes code
         } catch (ex) {
             const error = new ApiError(ex.toString(), 500)
             next(error)
@@ -121,7 +121,7 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM categorie WHERE ID = ?', [ req.params.huisId ],
+                connection.query('SELECT * FROM delers WHERE ID = ?', [ req.params.huisId ],
                     (err, rows, fields) => {
                         connection.release()
                         if (err) {
@@ -143,7 +143,7 @@ module.exports = {
                                 } else {
                                     //  - zo ja, dan SQL query DELETE
                                     pool.query(
-                                        'DELETE FROM categorie WHERE ID = ?',
+                                        'DELETE FROM delers WHERE ID = ?',
                                         [ req.params.huisId ],
                                         (err, rows, fields) => {
                                             if(err) {
@@ -152,7 +152,7 @@ module.exports = {
                                                 next(error);
                                             } else {
                                                 // handle success
-                                                res.status(200).json({ result: "je hebt succesvol je Categorie verwijdert!"}).end()
+                                                res.status(200).json({ result: "je hebt succesvol je delers verwijdert!"}).end()
                                             }
                                         })
                                 }
