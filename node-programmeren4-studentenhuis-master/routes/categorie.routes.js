@@ -5,7 +5,7 @@
 
 let routes = require('express').Router()
 const categorieController = require('../controllers/categorie.controller')
-const MaaltijdController = require('../controllers/maaltijd.controller')
+const SpullenController = require('../controllers/spullen.controller')
 const DeelnemerController = require('../controllers/delers.controller')
 const UploadController = require('../controllers/upload.controller')
 
@@ -38,24 +38,24 @@ const UploadController = require('../controllers/upload.controller')
  */
 
 /**
- * @typedef Maaltijd
- * @property {string} naam.required - Naam van de maaltijd
- * @property {string} beschrijving.required - Korte beschrijving van de maaltijd.
- * @property {string} ingredienten.required - Ingredienten van de maaltijd, komma gescheiden.
- * @property {string} allergie.required - Allergie informatie van de maaltijd.
- * @property {number} prijs.required - Prijs van de maaltijd (alleen gehele getallen).
- * @property {string} image - Afbeelding van de maaltijd
+ * @typedef Spullen
+ * @property {string} naam.required - Naam van de spullen
+ * @property {string} beschrijving.required - Korte beschrijving van de spullen.
+ * @property {string} merk.required - Merk van de spullen, komma gescheiden.
+ * @property {string} soort.required - Soort informatie van de spullen.
+ * @property {number} bouwjaar.required - Bouwjaar van de spullen (alleen gehele getallen).
+ * @property {string} image - Afbeelding van de spullen
  */
 
 /**
- * @typedef MaaltijdResponse
- * @property {number} ID.required - De ID van de maaltijd
- * @property {string} naam.required - Naam van de maaltijd
- * @property {string} beschrijving.required - Korte beschrijving van de maaltijd.
- * @property {string} ingredienten.required - Ingredienten van de maaltijd, komma gescheiden.
- * @property {string} allergie.required - Allergie informatie van de maaltijd.
- * @property {number} prijs.required - Prijs van de maaltijd (alleen gehele getallen).
- * @property {string} image - Afbeelding van de maaltijd
+ * @typedef SpullenResponse
+ * @property {number} ID.required - De ID van de spullen
+ * @property {string} naam.required - Naam van de spullen
+ * @property {string} beschrijving.required - Korte beschrijving van de spullen.
+ * @property {string} merk.required - Merk van de spullen, komma gescheiden.
+ * @property {string} soort.required - Soort informatie van de spullen.
+ * @property {number} bouwjaar.required - Bouwjaar van de spullen (alleen gehele getallen).
+ * @property {string} image - Afbeelding van de spullen
  */
 
 /**
@@ -121,92 +121,92 @@ routes.put('/categorie/:huisId', categorieController.update)
 routes.delete('/categorie/:huisId', categorieController.delete)
 
 /**
- * Maak een nieuwe maaltijd voor een categorie. De ID van de gebruiker die de maaltijd
- * aanmaakt wordt opgeslagen bij de maaltijd. 
+ * Maak een nieuwe spullen voor een categorie. De ID van de gebruiker die de spullen
+ * aanmaakt wordt opgeslagen bij de spullen.
  * Deze ID haal je uit het JWT token.
  * Als er geen categorie met de gevraagde huisId bestaat wordt een juiste foutmelding geretourneerd.
  * De correctheid van de informatie die wordt gegeven moet door de server gevalideerd worden. 
  * Bij ontbrekende of foutieve invoer wordt een juiste foutmelding geretourneerd.
  * Authenticatie door middel van JWT is vereist.
  * 
- * @route POST /api/categorie/{huisId}/maaltijd
- * @group Maaltijd - Endpoints voor CRUD functionaliteit op een maaltijd.
- * @param {Maaltijd.model} maaltijd.body.required - Een object in de request body met de gegevens van de maaltijd
- * @returns {MaaltijdResponse.model} 200 - De maaltijd die toegevoegd is
+ * @route POST /api/categorie/{huisId}/spullen
+ * @group Spullen - Endpoints voor CRUD functionaliteit op een spullen.
+ * @param {Spullen.model} spullen.body.required - Een object in de request body met de gegevens van de spullen
+ * @returns {SpullenResponse.model} 200 - De spullen die toegevoegd is
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId bestaat niet)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.post('/categorie/:huisId/maaltijd', MaaltijdController.create)
+routes.post('/categorie/:huisId/spullen', SpullenController.create)
 
 /**
- * Vervang de maaltijd met het gegeven maaltijdId door de nieuwe maaltijd in de request body.
- * Als er geen categorie of maaltijd met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
- * Alleen de gebruiker die de maaltijd heeft aangemaakt kan deze wijzigen.
+ * Vervang de spullen met het gegeven spullenId door de nieuwe spullen in de request body.
+ * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
+ * Alleen de gebruiker die de spullen heeft aangemaakt kan deze wijzigen.
  * De ID van de gebruiker haal je uit het JWT token.
  * De correctheid van de informatie die wordt gegeven moet door de server gevalideerd worden.
  * Bij ontbrekende of foutieve invoer wordt een juiste foutmelding geretourneerd.
  * Authenticatie door middel van JWT is vereist. 
  * 
- * @route PUT /api/categorie/{huisId}/maaltijd/{maaltijdId}
- * @group Maaltijd - Endpoints voor CRUD functionaliteit op een maaltijd.
- * @param {Maaltijd.model} maaltijd.body.required - De nieuwe maaltijd
- * @returns {MaaltijdResponse.model} 200 - De bijgewerkte maaltijd
+ * @route PUT /api/categorie/{huisId}/spullen/{spullenId}
+ * @group Spullen - Endpoints voor CRUD functionaliteit op een spullen.
+ * @param {Spullen.model} spullen.body.required - De nieuwe spullen
+ * @returns {SpullenResponse.model} 200 - De bijgewerkte spullen
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
- * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
+ * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet wijzigen)
  * @returns {ApiError.model}  412 - Een of meer properties in de request body ontbreken of zijn foutief 
  */
-routes.put('/categorie/:huisId/maaltijd/:maaltijdId', MaaltijdController.update)
+routes.put('/categorie/:huisId/spullen/:spullenId', SpullenController.update)
 
 /**
- * Verwijder de maaltijd met het gegeven maaltijdId.
- * Als er geen categorie of maaltijd met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
- * Alleen de gebruiker die de maaltijd heeft aangemaakt kan deze wijzigen.
+ * Verwijder de spullen met het gegeven spullenId.
+ * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
+ * Alleen de gebruiker die de spullen heeft aangemaakt kan deze wijzigen.
  * De ID van de gebruiker haal je uit het JWT token.
  * Authenticatie door middel van JWT is vereist. 
  * 
- * @route DELETE /api/categorie/{huisId}/maaltijd/{maaltijdId}
- * @group Maaltijd - Endpoints voor CRUD functionaliteit op een maaltijd.
+ * @route DELETE /api/categorie/{huisId}/spullen/{spullenId}
+ * @group Spullen - Endpoints voor CRUD functionaliteit op een spullen.
  * @returns {object} 200 - Info over de status van de verwijderactie
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
- * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
+ * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/categorie/:huisId/maaltijd/:maaltijdId', MaaltijdController.delete)
+routes.delete('/categorie/:huisId/spullen/:spullenId', SpullenController.delete)
 
 /**
- * Meld je aan voor een maaltijd in een categorie.
- * Als er geen categorie of maaltijd met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
+ * Meld je aan voor een spullen in een categorie.
+ * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
  * De user ID uit het token is dat van de gebruiker die zich aanmeldt. 
  * Die gebruiker wordt dus aan de lijst met aanmelders toegevoegd. 
- * Een gebruiker kan zich alleen aanmelden als hij niet al aan de maaltijd deelneemt; 
+ * Een gebruiker kan zich alleen aanmelden als hij niet al aan de spullen deelneemt;
  * anders volgt een foutmelding.
  * Authenticatie door middel van JWT is vereist. 
  * 
- * @route POST /api/categorie/{huisId}/maaltijd/{maaltijdId}/delers
- * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een maaltijd.
+ * @route POST /api/categorie/{huisId}/spullen/{spullenId}/delers
+ * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
  * @returns {DeelnemerResponse.model} 200 - Informatie over de toegevoegde deelnemer
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
- * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
+ * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker is al aangemeld)
  */
-routes.post('/categorie/:huisId/maaltijd/:maaltijdId/delers', DeelnemerController.create)
+routes.post('/categorie/:huisId/spullen/:spullenId/delers', DeelnemerController.create)
 
 /**
  * Verwijder een deelnemer.
- * Als er geen categorie of maaltijd met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
+ * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
  * De deelnemer die wordt verwijderd is de gebruiker met het ID uit het token.
  * Een gebruiker kan alleen zijn eigen aanmelding verwijderen. 
  * Authenticatie door middel van JWT is vereist. 
  * 
- * @route DELETE /api/categorie/{huisId}/maaltijd/{maaltijdId}/delers
- * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een maaltijd.
+ * @route DELETE /api/categorie/{huisId}/spullen/{spullenId}/delers
+ * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
  * @returns {object} 200 - Informatie over de verwijderactie
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
- * @returns {ApiError.model}  404 - Niet gevonden (huisId of maaltijdId bestaat niet)
+ * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/categorie/:huisId/maaltijd/:maaltijdId', DeelnemerController.delete)
+routes.delete('/categorie/:huisId/spullen/:spullenId', DeelnemerController.delete)
 
 module.exports = routes
