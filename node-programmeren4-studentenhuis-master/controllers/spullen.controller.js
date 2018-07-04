@@ -11,12 +11,15 @@ const logger = require('../config/config').logger
 module.exports = {
 
     create(req, res, next) {
-
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
-            // More validations here.
+            assert(typeof (req.body.beschrijving) === 'string', 'beschrijving must be a string.')
+            assert(typeof (req.body.merk) === 'string', 'merk must be a string.')
+            assert(typeof (req.body.soort) === 'string', 'soort must be a string.')
+            assert(typeof (req.body.bouwjaar) === 'number', 'bouwjaar must be a number.')
+
         } catch (ex) {
             const error = new ApiError(ex.toString(), 500)
             next(error)
@@ -24,10 +27,11 @@ module.exports = {
         }
 
         try {
-            const huisId = req.params.huisId
             const userId = req.user.id
+            const huisId = req.params.huisId
             const query = 'INSERT INTO `spullen` (Naam, Beschrijving, Merk, Soort, Bouwjaar, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
             const values = [req.body.naam, req.body.beschrijving, req.body.merk, req.body.soort, req.body.bouwjaar, userId, huisId]
+
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -36,17 +40,28 @@ module.exports = {
                     return
                 }
                 connection.query(query, values,
-                (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        res.status(200).json({
-                            status: rows
-                        }).end()
-                    }
-                })
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief", 412)
+                            next(error);
+                        } else {
+                            pool.query(
+                                'SELECT * FROM spullen WHERE ID = ?',
+                                [ rows.insertId ],
+
+                                (err, rows, fields) => {
+                                    if(err) {
+                                        // handle error
+                                        const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief", 412)
+                                        next(error);
+                                        // get the Row information
+                                    } else {
+                                        res.status(200).json({ result: rows }).end()
+                                    }
+                                })
+                        }
+                    })
             })
         } catch (ex) {
             logger.error(ex)
@@ -114,6 +129,7 @@ module.exports = {
                     }
                     if (rows.length === 0) {
                         const error = new ApiError('Non-exiting spullen or not allowed to access it.', 404)
+                        next(error);
                         next(error);
                     } else {
                         res.status(200).json({result: rows[0]}).end()
