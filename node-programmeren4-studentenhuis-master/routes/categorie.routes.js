@@ -6,7 +6,7 @@
 let routes = require('express').Router()
 const categorieController = require('../controllers/categorie.controller')
 const SpullenController = require('../controllers/spullen.controller')
-const DelerController = require('../controllers/delers.controller')
+const DeelnemerController = require('../controllers/delers.controller')
 const UploadController = require('../controllers/upload.controller')
 
 /**
@@ -41,9 +41,9 @@ const UploadController = require('../controllers/upload.controller')
  * @typedef Spullen
  * @property {string} naam.required - Naam van de spullen
  * @property {string} beschrijving.required - Korte beschrijving van de spullen.
- * @property {string} ingredienten.required - Ingredienten van de spullen, komma gescheiden.
- * @property {string} allergie.required - Allergie informatie van de spullen.
- * @property {number} prijs.required - Prijs van de spullen (alleen gehele getallen).
+ * @property {string} merk.required - Merk van de spullen, komma gescheiden.
+ * @property {string} soort.required - Soort informatie van de spullen.
+ * @property {number} bouwjaar.required - Bouwjaar van de spullen (alleen gehele getallen).
  * @property {string} image - Afbeelding van de spullen
  */
 
@@ -52,18 +52,18 @@ const UploadController = require('../controllers/upload.controller')
  * @property {number} ID.required - De ID van de spullen
  * @property {string} naam.required - Naam van de spullen
  * @property {string} beschrijving.required - Korte beschrijving van de spullen.
- * @property {string} ingredienten.required - Ingredienten van de spullen, komma gescheiden.
- * @property {string} allergie.required - Allergie informatie van de spullen.
- * @property {number} prijs.required - Prijs van de spullen (alleen gehele getallen).
+ * @property {string} merk.required - Merk van de spullen, komma gescheiden.
+ * @property {string} soort.required - Soort informatie van de spullen.
+ * @property {number} bouwjaar.required - Bouwjaar van de spullen (alleen gehele getallen).
  * @property {string} image - Afbeelding van de spullen
  */
 
 /**
- * @typedef DelerResponse
+ * @typedef DeelnemerResponse
  * @property {string} voornaam.required
  * @property {string} achternaam.required
  * @property {string} email.required
- * @property {string} image - Afbeelding van de deler
+ * @property {string} image - Afbeelding van de deelnemer
  */
 
 /**
@@ -122,7 +122,7 @@ routes.delete('/categorie/:huisId', categorieController.delete)
 
 /**
  * Maak een nieuwe spullen voor een categorie. De ID van de gebruiker die de spullen
- * aanmaakt wordt opgeslagen bij de spullen. 
+ * aanmaakt wordt opgeslagen bij de spullen.
  * Deze ID haal je uit het JWT token.
  * Als er geen categorie met de gevraagde huisId bestaat wordt een juiste foutmelding geretourneerd.
  * De correctheid van de informatie die wordt gegeven moet door de server gevalideerd worden. 
@@ -180,33 +180,33 @@ routes.delete('/categorie/:huisId/spullen/:spullenId', SpullenController.delete)
  * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
  * De user ID uit het token is dat van de gebruiker die zich aanmeldt. 
  * Die gebruiker wordt dus aan de lijst met aanmelders toegevoegd. 
- * Een gebruiker kan zich alleen aanmelden als hij niet al aan de spullen deelneemt; 
+ * Een gebruiker kan zich alleen aanmelden als hij niet al aan de spullen deelneemt;
  * anders volgt een foutmelding.
  * Authenticatie door middel van JWT is vereist. 
  * 
  * @route POST /api/categorie/{huisId}/spullen/{spullenId}/delers
- * @group Delers - Endpoints voor CRD functionaliteit op een deler aan een spullen.
- * @returns {DelerResponse.model} 200 - Informatie over de toegevoegde deler
+ * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
+ * @returns {DeelnemerResponse.model} 200 - Informatie over de toegevoegde deelnemer
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker is al aangemeld)
  */
-routes.post('/categorie/:huisId/spullen/:spullenId/delers', DelerController.create)
+routes.post('/categorie/:huisId/spullen/:spullenId/delers', DeelnemerController.create)
 
 /**
- * Verwijder een deler.
+ * Verwijder een deelnemer.
  * Als er geen categorie of spullen met de gevraagde Id bestaat wordt een juiste foutmelding geretourneerd.
- * De deler die wordt verwijderd is de gebruiker met het ID uit het token.
+ * De deelnemer die wordt verwijderd is de gebruiker met het ID uit het token.
  * Een gebruiker kan alleen zijn eigen aanmelding verwijderen. 
  * Authenticatie door middel van JWT is vereist. 
  * 
  * @route DELETE /api/categorie/{huisId}/spullen/{spullenId}/delers
- * @group Delers - Endpoints voor CRD functionaliteit op een deler aan een spullen.
+ * @group Deelnemers - Endpoints voor CRD functionaliteit op een deelnemer aan een spullen.
  * @returns {object} 200 - Informatie over de verwijderactie
  * @returns {ApiError.model}  401 - Niet geautoriseerd (geen valid token)
  * @returns {ApiError.model}  404 - Niet gevonden (huisId of spullenId bestaat niet)
  * @returns {ApiError.model}  409 - Conflict (Gebruiker mag deze data niet verwijderen)
  */
-routes.delete('/categorie/:huisId/spullen/:spullenId', DelerController.delete)
+routes.delete('/categorie/:huisId/spullen/:spullenId', DeelnemerController.delete)
 
 module.exports = routes

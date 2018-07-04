@@ -42,7 +42,7 @@ module.exports = {
                     if (err) {
                         let error;
                         if (err.code && err.code === 'ER_DUP_ENTRY') {
-                            error = new ApiError('You have already been logged in as deler.', 404)
+                            error = new ApiError('You have already been aangemeld as deelnemer.', 404)
                         } else {
                             error = new ApiError(err, 412)
                         }

@@ -27,7 +27,7 @@ module.exports = {
             const huisId = req.params.huisId
             const userId = req.user.id
             const query = 'INSERT INTO `spullen` (Naam, Beschrijving, Merk, Soort, Bouwjaar, UserID, categorieID) VALUES (?, ?, ?, ?, ?, ?, ?)'
-            const values = [req.body.naam, req.body.beschrijving, req.body.ingredienten, req.body.allergie, req.body.prijs, userId, huisId]
+            const values = [req.body.naam, req.body.beschrijving, req.body.merk, req.body.soort, req.body.bouwjaar, userId, huisId]
             pool.getConnection((err, connection) => {
                 if (err) {
                     logger.error('Error getting connection from pool: ' + err.toString())
@@ -56,8 +56,8 @@ module.exports = {
     },
 
     /**
-     * Haal alle items op voor de user met gegeven id. 
-     * De user ID zit in het request na validatie! 
+     * Haal alle items op voor de user met gegeven id.
+     * De user ID zit in het request na validatie!
      */
     getAll(req, res, next) {
         try {
@@ -89,8 +89,8 @@ module.exports = {
     },
 
     /**
-     * Haal alle items op voor de user met gegeven id. 
-     * De user ID zit in het request na validatie! 
+     * Haal alle items op voor de user met gegeven id.
+     * De user ID zit in het request na validatie!
      */
     getSpullenById(req, res, next) {
 
@@ -138,10 +138,10 @@ module.exports = {
 
     /**
      * Delete an item.
-     * 
-     * @param {object} req 
-     * @param {object} res 
-     * @param {function} next 
+     *
+     * @param {object} req
+     * @param {object} res
+     * @param {function} next
      */
     delete(req, res, next) {
         res.status(400).json({

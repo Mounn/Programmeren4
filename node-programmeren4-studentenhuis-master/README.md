@@ -1,5 +1,5 @@
-# Nodejs Programmeren 4 tentamen kans 2 - categorie
-Nodejs server die een api biedt voor functionaliteit rond users, categorieen, spullen en delers. Users kunnen zich registreren en een categorie maken. Binnen een categorie kunnen spullen gemaakt worden. Andere users kunnen deelnemen aan een de verkoop van spullen. De app maakt gebruik van een MySQL database.
+# Nodejs Programmeren 4 tentamen - categorie
+Nodejs server die een api biedt voor functionaliteit rond users, categorieen, spullenen en delers aan een spullen. Users kunnen zich registreren en een categorie maken. Binnen een categorie kan een spullen gemaakt worden. Andere users kunnen deelnemen aan een spullen. De app maakt gebruik van een MySQL database.
 
 ## Documentation
 See the Swagger documentation on [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/) and online on [Heroku](https://mee-eten.herokuapp.com/api-docs/).
