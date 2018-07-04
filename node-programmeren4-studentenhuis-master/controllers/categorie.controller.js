@@ -129,10 +129,10 @@ module.exports = {
      */
     update(req, res, next) {
 
-        // req moet de juiste attributen hebben - het nieuwe categorie
+        // req moet de juiste attributen hebben - de nieuwe categorie
         try {
             assert(req.user && req.user.id, 'User ID is missing!')
-            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and beschrijving.')
+            assert(typeof (req.body) === 'object', 'request body must have an object containing naam and adres.')
             assert(typeof (req.body.naam) === 'string', 'naam must be a string.')
             assert(typeof (req.body.beschrijving) === 'string', 'beschrijving must be a string.')
         } catch (ex) {
@@ -143,7 +143,7 @@ module.exports = {
         // Hier hebben we de juiste body als input.
 
         const ID = req.params.huisId
-        // 1. Zoek in db of categorie met huisId bestaat
+        // 1. Zoek in pool of categorie met huisId bestaat
         try {
             pool.getConnection((err, connection) => {
                 if (err) {
@@ -152,44 +152,56 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [ ID ],
-                (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
-                        if(rows.length !== 1) {
-                            // zo nee, dan error 
-                            const error = new ApiError(err, 404)
+                connection.query('SELECT * FROM categorie WHERE ID = ?', [ ID ],
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
                             next(error);
                         } else {
-                            // zo ja, dan
-
-                            if(rows[0].UserID != req.user.id) {
-                                console.log("Request mislukt.")
-                                const error = new ApiError('Gebruiker mag deze data niet wijzigen. Alleen de maker mag dat.', 412)
+                            // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
+                            logger.debug("ROWS: " + rows)
+                            if(rows.length !== 1) {
+                                // zo nee, dan error
+                                const error = new ApiError(err, 404)
                                 next(error);
                             } else {
-                                //  - zo ja, dan SQL query UPDATE
-                                db.query(
-                                    'UPDATE categorie SET `Naam` = \'' + name + '\', `Beschrijving` = \'' + beschrijving + '\' WHERE `UserID`= ' + id + ' AND `ID` = ' + houseId + '',
-                                    [ req.body.naam, req.params.huisId], 
-                                    (err, rows, fields) => {
-                                        if(err) {
-                                            // handle error
-                                            const error = new ApiError(err, 412)
-                                            next(error);
-                                        } else {
-                                            // handle success
-                                            res.status(200).json({ result: rows }).end()
-                                        }
-                                })
+                                // zo ja, dan
+                                // - check eerst of de huidige user de 'eigenaar' van het categorie is
+                                if(rows[0].UserID !== req.user.id) {
+                                    //  - zo nee, error
+                                    const error = new ApiError(rows[0].UserID + " - " +  req.user.id, 412)
+                                    next(error);
+                                } else {
+                                    //  - zo ja, dan SQL query UPDATE
+                                    pool.query(
+                                        'UPDATE categorie SET Naam = ?, Beschrijving = ? WHERE ID = ?',
+                                        [ req.body.naam, req.body.beschrijving, ID],
+                                        (err, rows, fields) => {
+                                            if(err) {
+                                                // handle error
+                                                const error = new ApiError(err, 412)
+                                                next(error);
+                                            } else {
+                                                // handle success
+                                                pool.query(
+                                                    'SELECT * FROM view_categorie WHERE ID = ?',
+                                                    [ ID ],
+                                                    (err, rows, fields) => {
+                                                        if(err) {
+                                                            // handle error
+                                                            const error = new ApiError(err, 412)
+                                                            next(error);
+                                                        } else {
+                                                            res.status(200).json({ result: rows }).end()
+                                                        }
+                                                    })
+                                            }
+                                        })
+                                }
                             }
                         }
-                    }
-                })
+                    })
             })
         } catch (ex) {
             logger.error(ex)

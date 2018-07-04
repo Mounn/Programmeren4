@@ -56,8 +56,8 @@
       <file leaf-file-name="categorie.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="158" column="22" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="22" />
+            <state relative-caret-position="669">
+              <caret line="179" column="64" lean-forward="true" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -66,8 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>studentenhuis</find>
-      <find>status</find>
       <find>studen</find>
       <find>Studentenhuis</find>
       <find>Stude</find>
@@ -96,6 +94,8 @@
       <find>deelnemer</find>
       <find>update</find>
       <find>meal</find>
+      <find>Adres</find>
+      <find>conn</find>
     </findStrings>
     <replaceStrings>
       <replace>categorie</replace>
@@ -111,6 +111,7 @@
       <replace>items</replace>
       <replace>deler</replace>
       <replace>item</replace>
+      <replace>connection</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -153,10 +154,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1449" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="765" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -242,18 +243,17 @@
       <workItem from="1530396279116" duration="1192000" />
       <workItem from="1530627396356" duration="12571000" />
       <workItem from="1530701097530" duration="674000" />
-      <workItem from="1530702342006" duration="6356000" />
+      <workItem from="1530702342006" duration="8389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27506000" />
+    <option name="totallyTimeSpent" value="29539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12545235" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12545235" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -262,7 +262,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" x="-1680" y="917" width="1658" height="240" id="Terminal" order="7" visible="true" weight="0.14864865" />
+      <window_info active="true" anchor="bottom" x="-1680" y="917" width="1658" height="240" id="Terminal" order="7" visible="true" weight="0.14864865" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -671,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/categorie.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="158" column="22" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="22" />
+        <state relative-caret-position="669">
+          <caret line="179" column="64" lean-forward="true" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
         </state>
       </provider>
     </entry>
