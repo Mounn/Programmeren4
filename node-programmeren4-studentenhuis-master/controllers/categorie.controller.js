@@ -44,7 +44,7 @@ module.exports = {
                                 status: rows
                             }).end()
                         }
-                })
+                    })
             })
         } catch (ex) {
             logger.error(ex)
@@ -54,8 +54,8 @@ module.exports = {
     },
 
     /**
-     * Haal alle items op voor de user met gegeven id. 
-     * De user ID zit in het request na validatie! 
+     * Haal alle items op voor de user met gegeven id.
+     * De user ID zit in het request na validatie!
      */
     getAll(req, res, next) {
 
@@ -68,15 +68,15 @@ module.exports = {
                     return
                 }
                 connection.query('SELECT * FROM view_categorie',
-                (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        res.status(200).json({result: rows}).end()
-                    }
-                })
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
+                            next(error);
+                        } else {
+                            res.status(200).json({result: rows}).end()
+                        }
+                    })
             })
         } catch (ex) {
             logger.error(ex)
@@ -86,8 +86,8 @@ module.exports = {
     },
 
     /**
-     * Haal alle items op voor de user met gegeven id. 
-     * De user ID zit in het request na validatie! 
+     * Haal alle items op voor de user met gegeven id.
+     * De user ID zit in het request na validatie!
      */
     getById(req, res, next) {
         try {
@@ -107,15 +107,15 @@ module.exports = {
                     return
                 }
                 connection.query('SELECT * FROM view_categorie WHERE ID = ?', [req.params.huisId],
-                (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        res.status(200).json({ result: rows[0] }).end()
-                    }
-                })
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
+                            next(error);
+                        } else {
+                            res.status(200).json({result: rows[0]}).end()
+                        }
+                    })
             })
         } catch (ex) {
             logger.error(ex)
@@ -152,44 +152,44 @@ module.exports = {
                     next(error);
                     return
                 }
-                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [ ID ],
-                (err, rows, fields) => {
-                    connection.release()
-                    if (err) {
-                        const error = new ApiError(err, 412)
-                        next(error);
-                    } else {
-                        // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
-                        if(rows.length !== 1) {
-                            // zo nee, dan error 
-                            const error = new ApiError(err, 404)
+                connection.query('SELECT * FROM view_categorie WHERE ID = ?', [ID],
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
                             next(error);
                         } else {
-                            // zo ja, dan
-                            // - check eerst of de huidige user de 'eigenaar' van het categorie is
-                            if(rows[0].UserID !== req.user.id) {
-                                //  - zo nee, error
-                                const error = new ApiError(err, 412)
+                            // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
+                            if (rows.length !== 1) {
+                                // zo nee, dan error
+                                const error = new ApiError(err, 404)
                                 next(error);
                             } else {
-                                //  - zo ja, dan SQL query UPDATE
-                                db.query(
-                                    'UPDATE categorie SET Naam = ? WHERE ID = ?',
-                                    [ req.body.naam, req.params.huisId], 
-                                    (err, rows, fields) => {
-                                        if(err) {
-                                            // handle error
-                                            const error = new ApiError(err, 412)
-                                            next(error);
-                                        } else {
-                                            // handle success
-                                            res.status(200).json({ result: rows }).end()
-                                        }
-                                })
+                                // zo ja, dan
+                                // - check eerst of de huidige user de 'eigenaar' van het categorie is
+                                if (rows[0].UserID !== req.user.id) {
+                                    //  - zo nee, error
+                                    const error = new ApiError("Een of meer properties in de request body ontbreken of zijn foutief. of een verkeerde account", 412)
+                                    next(error);
+                                } else {
+                                    //  - zo ja, dan SQL query UPDATE
+                                    db.query(
+                                        'UPDATE categorie SET Naam = ? WHERE ID = ?',
+                                        [req.body.naam, req.params.huisId],
+                                        (err, rows, fields) => {
+                                            if (err) {
+                                                // handle error
+                                                const error = new ApiError(err, 412)
+                                                next(error);
+                                            } else {
+                                                // handle success
+                                                res.status(200).json({result: rows}).end()
+                                            }
+                                        })
+                                }
                             }
                         }
-                    }
-                })
+                    })
             })
         } catch (ex) {
             logger.error(ex)
@@ -199,9 +199,71 @@ module.exports = {
     },
 
     delete(req, res, next) {
-        res.status(400).json({
-            msg: 'Not implemented yet!'
-        }).end()
+        // req moet de juiste attributen hebben - de nieuwe categorie
+        try {
+            assert(req.user && req.user.id, 'User ID is missing!')
+        } catch (ex) {
+            const error = new ApiError(ex.toString(), 500)
+            next(error)
+            return
+        }
+        // Hier hebben we de juiste body als input.
+
+        // 1. Zoek in pool of categorie met huisId bestaat
+        try {
+            pool.getConnection((err, connection) => {
+                if (err) {
+                    logger.error('Error getting connection from pool: ' + err.toString())
+                    const error = new ApiError(err, 500)
+                    next(error);
+                    return
+                }
+                connection.query('SELECT * FROM categorie WHERE ID = ?', [ req.params.huisId ],
+                    (err, rows, fields) => {
+                        connection.release()
+                        if (err) {
+                            const error = new ApiError(err, 412)
+                            next(error);
+                        } else {
+                            // rows MOET hier 1 waarde bevatten - nl. het gevonden categorie.
+                            if(rows.length !== 1) {
+                                // zo nee, dan error
+                                const error = new ApiError("Niet gevonden (categorieId bestaat niet)", 404)
+                                next(error);
+                            } else {
+                                // zo ja, dan
+                                // - check eerst of de huidige user de 'eigenaar' van het categorie is
+                                if(rows[0].UserID !== req.user.id) {
+                                    //  - zo nee, error
+                                    const error = new ApiError("Je mag alleen je eigen categorien verwijderen, dit is iemands anders categorie id= " + rows[0].UserID, 412)
+                                    next(error);
+                                } else {
+                                    //  - zo ja, dan SQL query DELETE
+                                    pool.query(
+                                        'DELETE FROM categorie WHERE ID = ?',
+                                        [ req.params.huisId ],
+                                        (err, rows, fields) => {
+                                            if(err) {
+                                                // handle error
+                                                const error = new ApiError(err, 412)
+                                                next(error);
+                                            } else {
+                                                // handle success
+                                                res.status(200).json({ result: "je hebt succesvol je Categorie verwijdert!"}).end()
+                                            }
+                                        })
+                                }
+                            }
+                        }
+                    })
+            })
+        } catch (ex) {
+            logger.error(ex)
+            const error = new ApiError(ex, 500)
+            next(error);
+        }
     }
+
+
 
 }
